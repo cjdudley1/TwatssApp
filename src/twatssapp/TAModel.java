@@ -5,14 +5,29 @@
  */
 package twatssapp;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author chris
  */
 public class TAModel {
-    
+
     User currentUser;
-    UserGroup[] userGroups;
+    ArrayList<UserGroup> userGroups;
     UserGroup currentUserGroup;
+
+    public TAModel(User u) {
+        currentUserGroup = new UserGroup();
+        currentUser = u;
+    }
+
+    public void score() {
+        currentUser.scorePoint();
+    }
     
+    public UserGroup getCurrentGroup(){
+        return currentUserGroup;
+    }
+
 }

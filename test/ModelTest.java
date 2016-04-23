@@ -25,10 +25,10 @@ public class ModelTest {
     UserGroup testUserGroup1, testUserGroup2;
 
     public ModelTest() {
-        testModel = new TAModel();
         testUser1 = new User("Chris");
         testUser2 = new User("Olivia");
         testUser3 = new User("Olav");
+        testModel = new TAModel(testUser1);
         testUserGroup1 = new UserGroup();
         testUserGroup2 = new UserGroup();
     }
@@ -41,11 +41,20 @@ public class ModelTest {
     @Test
     public void testUser() {
         assertTrue(testUser1.getName().equals("Chris"));
+        assertTrue(testUser1.getScore() == 0);
+        testUser2.scorePoint();
+        assertTrue(testUser2.getScore() == 1);
     }
-    
+
     @Test
-    public void testUserGroup(){
+    public void testUserGroup() {
         testUserGroup1.addUser(testUser1);
         assertTrue(testUserGroup1.getUserList().get(0).equals(testUser1));
+    }
+
+    @Test
+    public void testScoreIncrease() {
+        testModel.score();
+        assertTrue(testUser1.getScore()==1);
     }
 }

@@ -12,13 +12,23 @@ package twatssapp;
 public class User {
 
     String name;
+    int score;
 
     public User(String nm) {
         name = nm;
+        score = 0;
     }
 
     public Object getName() {
         return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void scorePoint() {
+       score++;
     }
 
 }
